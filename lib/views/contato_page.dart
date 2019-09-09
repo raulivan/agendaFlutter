@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:agenda_contos/helpers/contato_helper.dart';
+import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class ContatoPage extends StatefulWidget {
@@ -80,6 +81,12 @@ class _ContatoPageState extends State<ContatoPage> {
                     )),
                 onTap: () {
                   print('Clicou na foto');
+                  ImagePicker.pickImage(source: ImageSource.camera).then((foto){
+                    if(foto == null) return;
+                    setState(() {
+                      _contatoEdicao.foto = foto.path;
+                    });
+                  });
                 },
               ),
               TextField(
@@ -119,8 +126,7 @@ class _ContatoPageState extends State<ContatoPage> {
   }
 
   dynamic _retornaFoto(String caminho) {
-    return AssetImage('images/no_photo.png');
-    /*
+    //return AssetImage('images/no_photo.png');
     if (caminho == null) {
       return AssetImage('images/no_photo.png');
     } else {
@@ -130,7 +136,7 @@ class _ContatoPageState extends State<ContatoPage> {
         print(ex);
         return AssetImage('images/no_photo.png');
       }
-    }*/
+    }
   }
 
   Future<bool> _requestPop() {

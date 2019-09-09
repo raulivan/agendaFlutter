@@ -41,5 +41,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- BEGIN Permissões de acesso a camera e galeria-->
+	<key>NSPhotoLibraryUsageDescription</key>       
+    <string>Tirar fotos dos contatos.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Selecionar uma foto de contato da galeria.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Tirar fotos dos contatos.</string>
+	<!-- END Permissões de acesso a camera e galeria-->
 </dict>
 </plist>
